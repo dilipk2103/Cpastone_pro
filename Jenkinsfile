@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.8.6'  // Use the actual name you configured in Jenkins
-        jdk 'jdk11'         // Use the actual name you configured in Jenkins
+        maven 'Maven 3.8.6'  // Make sure this matches your Jenkins config
+        jdk 'jdk11'           // Make sure this matches your Jenkins config
     }
 
     stages {
@@ -15,13 +15,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'mvn test -DsuiteXmlFile=testng.xml'
+                bat 'mvn test -DsuiteXmlFile=testng.xml'
             }
         }
 
